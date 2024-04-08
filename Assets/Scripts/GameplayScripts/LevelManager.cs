@@ -12,11 +12,11 @@ public class LevelManager : MonoBehaviour
     public void LoadScene(string Scenename)
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
-        if(Scenename == "Gameplay_Scene")
+        if(Scenename == "Scene_Darkness")
         {
             gamemanager.gameScenes = GameManager.GameScenes.Gameplay;
         }
-        else if(Scenename == "Gameplay_Scene2")
+        else if(Scenename == "Scene_Hub")
         {
             gamemanager.gameScenes = GameManager.GameScenes.Gameplay;
         }
