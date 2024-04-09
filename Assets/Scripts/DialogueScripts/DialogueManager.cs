@@ -11,6 +11,7 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI dialogueText;
     public GameObject DialoguePanel;
     public Dialogue dialogue;
+    public int currentGameOBJIndex = 0;
 
     public GameObject player;
     
@@ -19,7 +20,6 @@ public class DialogueManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        FindObjectOfType<Dialogue>();
         sentences = new Queue<string>();
         DialoguePanel.SetActive(false);
     }
@@ -34,8 +34,8 @@ public class DialogueManager : MonoBehaviour
         player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         foreach(string sentence in dialogueSentence)
         {
-            Debug.Log(sentence);
-            sentences.Enqueue(sentence);
+                Debug.Log(sentence);
+                sentences.Enqueue(sentence);
         }
         DisplayNextSentence();
     }
@@ -59,5 +59,10 @@ public class DialogueManager : MonoBehaviour
         sentences.Clear();
         DialoguePanel.SetActive(false);
         player.GetComponent<ChardterController2D>().enabled = true;
+        currentGameOBJIndex++;
+        if(currentGameOBJIndex < gameObjects)
+        {
+            
+        }
     }
 }

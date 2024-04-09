@@ -10,6 +10,8 @@ public class InteractableOBJ : MonoBehaviour
     [SerializeField] public TextMeshProUGUI MessageText;
     [SerializeField] public string Message;
     [SerializeField] public string[] sentence;
+    public GameObject[] gameObjects;
+    public Dialogue dialogue;
     public float Delay = 5f;
     public enum Type
     {
@@ -22,6 +24,8 @@ public class InteractableOBJ : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        dialogue = FindObjectOfType<Dialogue>();
+        sentence = dialogue.sentences;
         MessageText.text = null;
     }
     void Nothing()
