@@ -15,6 +15,7 @@ public class SceneTriggerBehaviour : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Player"))
         {
+            Debug.Log(Scenename);
             GameObject.FindObjectOfType<LevelManager>().LoadScene(Scenename);
         }
     }

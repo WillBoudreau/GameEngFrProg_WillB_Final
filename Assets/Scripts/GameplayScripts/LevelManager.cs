@@ -33,6 +33,7 @@ public class LevelManager : MonoBehaviour
             gamemanager.gameScenes = GameManager.GameScenes.MainMenu;
         }
         SceneManager.LoadScene(Scenename);
+        Debug.Log(Scenename);
     }
     void OnSceneLoaded(Scene scene,LoadSceneMode mode)
     {
