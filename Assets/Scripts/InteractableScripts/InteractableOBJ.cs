@@ -35,7 +35,12 @@ public class InteractableOBJ : MonoBehaviour
     public void Pickup()
     {
         Debug.Log("You picked up..." + gameObject.name);
+        if(gameObject.name == "Flower")
+        {
+            Message = "You picked up at Flower";
+        }
         this.gameObject.SetActive(false);
+        MessageText.text = Message;
         if(gameObject.name == "Coin")
         {
             Debug.Log("Hello!");

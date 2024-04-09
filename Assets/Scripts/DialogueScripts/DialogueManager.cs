@@ -49,20 +49,11 @@ public class DialogueManager : MonoBehaviour
         string sentence = sentences.Dequeue();
         dialogueText.text = sentence;
         nameText.text = dialogue.name;
-
-        // Debug.Log(dialogueText.text + "1");
-        // Debug.Log(dialogue.name);
-        // Debug.Log(nameText);
     }
     public void EndDialogue()
     {
         sentences.Clear();
         DialoguePanel.SetActive(false);
         player.GetComponent<ChardterController2D>().enabled = true;
-        currentGameOBJIndex++;
-        if(currentGameOBJIndex < gameObjects)
-        {
-            
-        }
     }
 }
