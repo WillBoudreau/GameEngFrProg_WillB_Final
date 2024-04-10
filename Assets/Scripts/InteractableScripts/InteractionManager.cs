@@ -24,6 +24,7 @@ public class InteractionManager : MonoBehaviour
             if (Interactable.type == InteractableOBJ.Type.pickup)
             {
                 Interactable.Pickup();
+
             }
             else if (Interactable.type == InteractableOBJ.Type.info)
             {

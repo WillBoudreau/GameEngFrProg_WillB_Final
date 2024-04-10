@@ -12,6 +12,7 @@ public class InteractableOBJ : MonoBehaviour
     [SerializeField] public string[] sentence;
     public GameObject[] gameObjects;
     public Dialogue dialogue;
+    public InventoryManager Inventory;
     public float Delay = 5f;
     public enum Type
     {
@@ -25,7 +26,10 @@ public class InteractableOBJ : MonoBehaviour
     void Start()
     {
         dialogue = FindObjectOfType<Dialogue>();
+        Inventory = FindObjectOfType<InventoryManager>();
         sentence = dialogue.sentences;
+        Debug.Log(Inventory.FlowersCount);
+        Debug.Log(dialogue.sentences);
         MessageText.text = null;
     }
     void Nothing()
@@ -34,17 +38,16 @@ public class InteractableOBJ : MonoBehaviour
     }
     public void Pickup()
     {
-        Debug.Log("You picked up..." + gameObject.name);
-        if(gameObject.name == "Flower")
+        Debug.Log(gameObject.name);
+        switch(gameObject.name)
         {
-            Message = "You picked up at Flower";
+            case "Flower":
+            Debug.Log(gameObject.name);
+            Inventory.UpdateItems("Flower",1);
+            Debug.Log(Inventory.FlowersCount);
+            break;
         }
-        this.gameObject.SetActive(false);
         MessageText.text = Message;
-        if(gameObject.name == "Coin")
-        {
-            Debug.Log("Hello!");
-        }
     }
     public void Dialogue()
     {

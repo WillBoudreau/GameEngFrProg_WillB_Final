@@ -58,6 +58,7 @@ public class GameManager : MonoBehaviour
     public void MainMenu()
     {
         Player.GetComponent<SpriteRenderer>().enabled = false;
+        Player.GetComponent<ChardterController2D>().enabled = false;
         gameScenes = GameScenes.MainMenu;
         uiManager.MainMenuUI();
     }
@@ -87,6 +88,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1.0f;
         Player.SetActive(true);
         Player.GetComponent<SpriteRenderer>().enabled = true;
+        Player.GetComponent<ChardterController2D>().enabled = true;
         uiManager.GamePlay();
     }
     public void Options()
