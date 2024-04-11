@@ -54,6 +54,6 @@ public class DialogueManager : MonoBehaviour
     {
         sentences.Clear();
         DialoguePanel.SetActive(false);
-        player.GetComponent<ChardterController2D>().enabled = true;
+        //player.GetComponent<ChardterController2D>().enabled = true;
     }
 }

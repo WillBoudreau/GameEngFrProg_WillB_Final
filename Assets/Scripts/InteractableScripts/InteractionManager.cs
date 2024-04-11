@@ -24,7 +24,6 @@ public class InteractionManager : MonoBehaviour
             if (Interactable.type == InteractableOBJ.Type.pickup)
             {
                 Interactable.Pickup();
-
             }
             else if (Interactable.type == InteractableOBJ.Type.info)
             {
@@ -56,7 +55,7 @@ public class InteractionManager : MonoBehaviour
             interact = other.gameObject;
             Interactable = other.GetComponent<InteractableOBJ>();
             nameText.text = gameObject.name;
-            Debug.Log(nameText.text);
+            //Debug.Log(nameText.text);
         }
     }
     private void OnTriggerExit2D(Collider2D other)

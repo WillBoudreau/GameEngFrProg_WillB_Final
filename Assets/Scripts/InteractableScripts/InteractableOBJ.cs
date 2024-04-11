@@ -24,7 +24,8 @@ public class InteractableOBJ : MonoBehaviour
     {
         None,
         Flower,
-        Rune
+        Medicine,
+        Rune,
     }
     public PickupType pickupType;
     public Type type;
@@ -43,28 +44,22 @@ public class InteractableOBJ : MonoBehaviour
     }
     public void Pickup()
     {
-        Debug.Log(gameObject.name);
         if(pickupType == PickupType.Flower)
         {
             Debug.Log(gameObject.name + "Picked up");
             FindObjectOfType<InventoryManager>().UpdateItems("Flower",1);
         }
-        Debug.Log(gameObject.name);
-        // if(gameObject.name == "Flower")
-        // {
-        //     Debug.Log(gameObject.name + "Picked up");
-        //     FindObjectOfType<InventoryManager>().UpdateItems("Flower",1);
-        //     Debug.Log("Count: " + Inventory.FlowersCount);
-        // }
-        // else if(gameObject.name == "Rune")
-        // {
-        //     Inventory.UpdateItems("Rune",1);
-        //     Debug.Log("Count: " + Inventory.RunesCount);
-        // }
-        
-        // Debug.Log(gameObject.name);
+        else if(pickupType == PickupType.Rune)
+        {
+            Debug.Log(gameObject.name + "Picked up");
+            FindObjectOfType<InventoryManager>().UpdateItems("Rune",1);
+        }
+        else if (pickupType == PickupType.Medicine)
+        {
+            Debug.Log(gameObject.name + "Picked up");
+            FindObjectOfType<InventoryManager>().UpdateItems("Medicine",1);
+        }
         gameObject.SetActive(false);
-        // MessageText.text = Message;
     }
     public void Dialogue()
     {

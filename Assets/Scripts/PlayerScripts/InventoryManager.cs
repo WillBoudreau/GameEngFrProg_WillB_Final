@@ -7,8 +7,10 @@ public class InventoryManager : MonoBehaviour
 {
     public int FlowersCount; 
     public int RunesCount;
+    public int MedicineCount;
     public TextMeshProUGUI FlowersTXT;
     public TextMeshProUGUI RunesTXT;
+    public TextMeshProUGUI MedicineTXT;
     public QuestManager questManager;  
     // Start is called before the first frame update
     void Start()
@@ -32,6 +34,10 @@ public class InventoryManager : MonoBehaviour
             case "Rune":
             RunesCount += amount;
             RunesTXT.text = RunesCount.ToString();
+            break;
+            case "Medicine":
+            MedicineCount += amount;
+            MedicineTXT.text = MedicineCount.ToString();
             break;
         }
     }
