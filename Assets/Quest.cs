@@ -8,7 +8,8 @@ public class Quest : MonoBehaviour
     {
         CollectFlower,
         CollectRune,
-        CollectMedicine
+        CollectMedicine,
+        CollectCoin
     }
     public enum QuestTracker
     {
@@ -61,6 +62,16 @@ public class Quest : MonoBehaviour
                     tracker = QuestTracker.Halfway;
                 }
                 if (inventory.MedicineCount >= 2)
+                {
+                    tracker = QuestTracker.Ended;
+                }
+                break;
+            case QuestType.CollectCoin:
+                if (inventory.CoinCount >= 1)
+                {
+                    tracker = QuestTracker.Halfway;
+                }
+                if (inventory.CoinCount >= 5)
                 {
                     tracker = QuestTracker.Ended;
                 }

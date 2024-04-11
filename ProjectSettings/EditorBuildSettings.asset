@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Scene_Darkness.unity
     guid: 5fd763ff71e723843a22208fded2aecb
+  - enabled: 1
+    path: Assets/Scenes/Scene_Ruins.unity
+    guid: ce70b7882956e10468057fa5d3dc0b93
   m_configObjects: {}

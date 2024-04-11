@@ -8,6 +8,8 @@ public class InventoryManager : MonoBehaviour
     public int FlowersCount; 
     public int RunesCount;
     public int MedicineCount;
+    public int CoinCount;
+    public TextMeshProUGUI CoinsTXT;
     public TextMeshProUGUI FlowersTXT;
     public TextMeshProUGUI RunesTXT;
     public TextMeshProUGUI MedicineTXT;
@@ -17,9 +19,13 @@ public class InventoryManager : MonoBehaviour
     {
        FlowersCount = 0;
        RunesCount = 0;
+       MedicineCount = 0;
+       CoinCount = 0;
        questManager = FindObjectOfType<QuestManager>();
        FlowersTXT.text = FlowersCount.ToString();
        RunesTXT.text = RunesCount.ToString();
+       MedicineTXT.text = MedicineCount.ToString();
+       CoinsTXT.text = CoinCount.ToString();
     }
     public void UpdateItems(string ItemName, int amount)
     {
@@ -38,6 +44,10 @@ public class InventoryManager : MonoBehaviour
             case "Medicine":
             MedicineCount += amount;
             MedicineTXT.text = MedicineCount.ToString();
+            break;
+            case "Coin":
+            CoinCount += amount;
+            CoinsTXT.text = CoinCount.ToString();
             break;
         }
     }

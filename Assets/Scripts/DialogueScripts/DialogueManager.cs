@@ -11,8 +11,6 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI dialogueText;
     public GameObject DialoguePanel;
     public Dialogue dialogue;
-    public int currentGameOBJIndex = 0;
-
     public GameObject player;
     
     public Queue<string> sentences;
