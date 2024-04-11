@@ -6,30 +6,33 @@ using TMPro;
 public class InventoryManager : MonoBehaviour
 {
     public int FlowersCount; 
-    public int CoinsCount;
-    public string ItemName;
-    public int amount;
+    public int RunesCount;
     public TextMeshProUGUI FlowersTXT;
+    public TextMeshProUGUI RunesTXT;
+    public QuestManager questManager;  
+    // Start is called before the first frame update
     void Start()
     {
        FlowersCount = 0;
-       CoinsCount = 0;
-        UpdateItems(ItemName,amount);
+       RunesCount = 0;
+       questManager = FindObjectOfType<QuestManager>();
+       FlowersTXT.text = FlowersCount.ToString();
+       RunesTXT.text = RunesCount.ToString();
     }
     public void UpdateItems(string ItemName, int amount)
     {
-        this.ItemName = ItemName;
-        this.amount = amount;
-        Debug.Log(ItemName);
-        Debug.Log(amount);
+
         switch(ItemName)
         {
             case "Flower":
-            Debug.Log(FlowersCount);
-            Debug.Log("Flower Added");
             FlowersCount += amount;
+            questManager.collectables.Add(gameObject);
+            FlowersTXT.text = FlowersCount.ToString();
+            break;
+            case "Rune":
+            RunesCount += amount;
+            RunesTXT.text = RunesCount.ToString();
             break;
         }
-        UpdateItems(ItemName,amount);
     }
 }

@@ -644,6 +644,9 @@ PrefabInstance:
       addedObject: {fileID: 341437892}
     - targetCorrespondingSourceObject: {fileID: 7947911505737750455, guid: c5bdca1933fde624698bb8c6d6daa44b, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 341437893}
+    - targetCorrespondingSourceObject: {fileID: 7947911505737750455, guid: c5bdca1933fde624698bb8c6d6daa44b, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 341437891}
     - targetCorrespondingSourceObject: {fileID: 7947911505737750455, guid: c5bdca1933fde624698bb8c6d6daa44b, type: 3}
       insertIndex: -1
@@ -782,11 +785,26 @@ MonoBehaviour:
   MessageText: {fileID: 0}
   Message: 
   sentence: []
-  gameObjects: []
   dialogue: {fileID: 0}
   Inventory: {fileID: 0}
   Delay: 5
+  pickupType: 0
   type: 2
+--- !u!114 &341437893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 341437888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49a4c8a418f4dd4458aa0957850a1055, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tracker: 0
+  type: 0
+  inventory: {fileID: 0}
 --- !u!4 &358346856 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2055102311959635375, guid: 6242b925f1d3e0d44a183102cd3d4c26, type: 3}
@@ -1069,6 +1087,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7947911505737750455, guid: c5bdca1933fde624698bb8c6d6daa44b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1451086869}
+    - targetCorrespondingSourceObject: {fileID: 7947911505737750455, guid: c5bdca1933fde624698bb8c6d6daa44b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1451086871}
   m_SourcePrefab: {fileID: 100100000, guid: c5bdca1933fde624698bb8c6d6daa44b, type: 3}
 --- !u!1001 &465281281
 PrefabInstance:
@@ -1396,10 +1417,10 @@ MonoBehaviour:
   MessageText: {fileID: 374383701}
   Message: This is a flower
   sentence: []
-  gameObjects: []
   dialogue: {fileID: 0}
   Inventory: {fileID: 0}
   Delay: 5
+  pickupType: 1
   type: 1
 --- !u!61 &733389115
 BoxCollider2D:
@@ -2781,10 +2802,10 @@ MonoBehaviour:
   MessageText: {fileID: 0}
   Message: 
   sentence: []
-  gameObjects: []
   dialogue: {fileID: 0}
   Inventory: {fileID: 0}
   Delay: 5
+  pickupType: 0
   type: 2
 --- !u!1001 &1429316623
 PrefabInstance:
@@ -2888,10 +2909,10 @@ MonoBehaviour:
   MessageText: {fileID: 0}
   Message: 
   sentence: []
-  gameObjects: []
   dialogue: {fileID: 0}
   Inventory: {fileID: 0}
   Delay: 5
+  pickupType: 0
   type: 2
 --- !u!61 &1451086869
 BoxCollider2D:
@@ -2983,6 +3004,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.9375, y: 2.25}
   m_EdgeRadius: 0
+--- !u!114 &1451086871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1451086861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49a4c8a418f4dd4458aa0957850a1055, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tracker: 0
+  type: 0
+  inventory: {fileID: 0}
 --- !u!1001 &1482715480
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14676,10 +14712,10 @@ MonoBehaviour:
   MessageText: {fileID: 0}
   Message: 'This coffin is empty '
   sentence: []
-  gameObjects: []
   dialogue: {fileID: 0}
   Inventory: {fileID: 0}
   Delay: 5
+  pickupType: 0
   type: 3
 --- !u!61 &2119176568
 BoxCollider2D:

@@ -10,7 +10,6 @@ public class InteractableOBJ : MonoBehaviour
     [SerializeField] public TextMeshProUGUI MessageText;
     [SerializeField] public string Message;
     [SerializeField] public string[] sentence;
-    public GameObject[] gameObjects;
     public Dialogue dialogue;
     public InventoryManager Inventory;
     public float Delay = 5f;
@@ -21,15 +20,21 @@ public class InteractableOBJ : MonoBehaviour
         dialogue,
         info
     }
+    public enum PickupType
+    {
+        None,
+        Flower,
+        Rune
+    }
+    public PickupType pickupType;
     public Type type;
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log(gameObject.name);
         dialogue = FindObjectOfType<Dialogue>();
         Inventory = FindObjectOfType<InventoryManager>();
         sentence = dialogue.sentences;
-        Debug.Log(Inventory.FlowersCount);
-        Debug.Log(dialogue.sentences);
         MessageText.text = null;
     }
     void Nothing()
@@ -39,15 +44,27 @@ public class InteractableOBJ : MonoBehaviour
     public void Pickup()
     {
         Debug.Log(gameObject.name);
-        switch(gameObject.name)
+        if(pickupType == PickupType.Flower)
         {
-            case "Flower":
-            Debug.Log(gameObject.name);
-            Inventory.UpdateItems("Flower",1);
-            Debug.Log(Inventory.FlowersCount);
-            break;
+            Debug.Log(gameObject.name + "Picked up");
+            FindObjectOfType<InventoryManager>().UpdateItems("Flower",1);
         }
-        MessageText.text = Message;
+        Debug.Log(gameObject.name);
+        // if(gameObject.name == "Flower")
+        // {
+        //     Debug.Log(gameObject.name + "Picked up");
+        //     FindObjectOfType<InventoryManager>().UpdateItems("Flower",1);
+        //     Debug.Log("Count: " + Inventory.FlowersCount);
+        // }
+        // else if(gameObject.name == "Rune")
+        // {
+        //     Inventory.UpdateItems("Rune",1);
+        //     Debug.Log("Count: " + Inventory.RunesCount);
+        // }
+        
+        // Debug.Log(gameObject.name);
+        gameObject.SetActive(false);
+        // MessageText.text = Message;
     }
     public void Dialogue()
     {
