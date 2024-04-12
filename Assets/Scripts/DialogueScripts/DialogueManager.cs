@@ -12,12 +12,16 @@ public class DialogueManager : MonoBehaviour
     public GameObject DialoguePanel;
     public Dialogue dialogue;
     public GameObject player;
+    public Quest quest;
+    public QuestManager questManager;   
     
     public Queue<string> sentences;
 
     // Start is called before the first frame update
     void Start()
     {
+        questManager = FindObjectOfType<QuestManager>();
+        quest = FindObjectOfType<Quest>();
         sentences = new Queue<string>();
         DialoguePanel.SetActive(false);
     }

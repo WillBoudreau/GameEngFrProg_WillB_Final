@@ -34,7 +34,6 @@ public class InventoryManager : MonoBehaviour
         {
             case "Flower":
             FlowersCount += amount;
-            questManager.collectables.Add(gameObject);
             FlowersTXT.text = FlowersCount.ToString();
             break;
             case "Rune":

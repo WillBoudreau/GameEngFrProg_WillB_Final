@@ -9,7 +9,8 @@ public class Quest : MonoBehaviour
         CollectFlower,
         CollectRune,
         CollectMedicine,
-        CollectCoin
+        CollectCoin,
+        ColledctSword
     }
     public enum QuestTracker
     {
@@ -22,10 +23,13 @@ public class Quest : MonoBehaviour
     public InventoryManager inventory;
     public List<GameObject> collectables;
     public List<GameObject> states;
+    public GameObject Coin;
+
     // Start is called before the first frame update
     void Start()
     {
         inventory = FindObjectOfType<InventoryManager>();
+        Coin.SetActive(false);
     }
     public void Update()
     {
@@ -57,11 +61,11 @@ public class Quest : MonoBehaviour
                 }
                 break;
             case QuestType.CollectMedicine:
-                if (inventory.MedicineCount == 1)
+                if (inventory.MedicineCount > 1)
                 {
                     tracker = QuestTracker.Halfway;
                 }
-                if (inventory.MedicineCount >= 2)
+                if (inventory.MedicineCount  == 1)
                 {
                     tracker = QuestTracker.Ended;
                 }
@@ -72,6 +76,17 @@ public class Quest : MonoBehaviour
                     tracker = QuestTracker.Halfway;
                 }
                 if (inventory.CoinCount >= 5)
+                {
+                    tracker = QuestTracker.Ended;
+                    Coin.SetActive(true);
+                }
+                break;
+            case QuestType.ColledctSword:
+                if (inventory.CoinCount < 1)
+                {
+                    tracker = QuestTracker.Halfway;
+                }
+                if (inventory.CoinCount > 1)
                 {
                     tracker = QuestTracker.Ended;
                 }
@@ -95,7 +110,6 @@ public class Quest : MonoBehaviour
             case QuestTracker.Ended:
                 states[2].SetActive(true);
                 break;
-
         }
     }
 }

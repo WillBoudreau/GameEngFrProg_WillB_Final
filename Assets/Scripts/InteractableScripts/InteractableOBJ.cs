@@ -26,6 +26,7 @@ public class InteractableOBJ : MonoBehaviour
         Flower,
         Medicine,
         Rune,
+        Coin,
     }
     public PickupType pickupType;
     public Type type;
@@ -33,7 +34,7 @@ public class InteractableOBJ : MonoBehaviour
     void Start()
     {
         Debug.Log(gameObject.name);
-        dialogue = FindObjectOfType<Dialogue>();
+        //dialogue = FindObjectOfType<Dialogue>();
         Inventory = FindObjectOfType<InventoryManager>();
         sentence = dialogue.sentences;
         MessageText.text = null;
@@ -58,6 +59,11 @@ public class InteractableOBJ : MonoBehaviour
         {
             Debug.Log(gameObject.name + "Picked up");
             FindObjectOfType<InventoryManager>().UpdateItems("Medicine",1);
+        }
+        else if (pickupType == PickupType.Coin)
+        {
+            Debug.Log(gameObject.name + "Picked up");
+            FindObjectOfType<InventoryManager>().UpdateItems("Coin",1);
         }
         gameObject.SetActive(false);
     }

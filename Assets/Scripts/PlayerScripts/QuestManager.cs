@@ -6,6 +6,8 @@ public class QuestManager : MonoBehaviour
 {
     public List<Quest> quests;
     public List<GameObject> collectables;
+    public List<GameObject> FinishItems;
+    bool dialogueEnd;
     // Start is called before the first frame update
 
     void Start()
@@ -16,6 +18,7 @@ public class QuestManager : MonoBehaviour
         {
             quest.UpdateQuest();
         }
+
     }
     // public enum QuestTracker
     // {
