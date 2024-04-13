@@ -20,7 +20,7 @@ public class LevelManager : MonoBehaviour
         {
             gamemanager.gameScenes = GameManager.GameScenes.Gameplay;
         }
-        else if(Scenename == "GameWin")
+        else if(Scenename == "Scene_EndScene")
         {
             gamemanager.gameScenes = GameManager.GameScenes.Win;
         }
@@ -28,7 +28,7 @@ public class LevelManager : MonoBehaviour
         {
             gamemanager.gameScenes = GameManager.GameScenes.GameOver;
         }
-        else if(Scenename == "Menu_MainMenu")
+        else if(Scenename == "Scene_MainMenu")
         {
             gamemanager.gameScenes = GameManager.GameScenes.MainMenu;
         }

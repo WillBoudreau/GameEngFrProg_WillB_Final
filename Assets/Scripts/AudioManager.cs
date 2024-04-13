@@ -12,9 +12,13 @@ public class AudioManager : MonoBehaviour
     // Start is called before the first frame update
     public void Start()
     {
-        audioSource = GetComponent<AudioSource>();
+        audioSource = FindObjectOfType<AudioSource>();
         audioSource.volume = volume;
         slider.value = volume;
+    }
+    public void Update()
+    {
+        SetVolume(slider.value);
     }
 
     public void SetVolume(float value)

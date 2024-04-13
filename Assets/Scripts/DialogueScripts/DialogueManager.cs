@@ -13,7 +13,7 @@ public class DialogueManager : MonoBehaviour
     public Dialogue dialogue;
     public GameObject player;
     public Quest quest;
-    public QuestManager questManager;   
+    public QuestManager questManager;  
     
     public Queue<string> sentences;
 
@@ -32,8 +32,8 @@ public class DialogueManager : MonoBehaviour
         DialoguePanel.SetActive(true);
 
         player.GetComponent<ChardterController2D>().enabled = false;
-
         player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+
         foreach(string sentence in dialogueSentence)
         {
                 Debug.Log(sentence);
@@ -51,11 +51,13 @@ public class DialogueManager : MonoBehaviour
         string sentence = sentences.Dequeue();
         dialogueText.text = sentence;
         nameText.text = dialogue.name;
+        Debug.Log(dialogue.name);
     }
     public void EndDialogue()
     {
         sentences.Clear();
         DialoguePanel.SetActive(false);
-        //player.GetComponent<ChardterController2D>().enabled = true;
+        player.GetComponent<ChardterController2D>().enabled = true;
     }
 }
+

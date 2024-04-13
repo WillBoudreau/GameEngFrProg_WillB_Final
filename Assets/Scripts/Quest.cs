@@ -10,7 +10,8 @@ public class Quest : MonoBehaviour
         CollectRune,
         CollectMedicine,
         CollectCoin,
-        ColledctSword
+        ColledctSword,
+        FinalQuest
     }
     public enum QuestTracker
     {
@@ -20,16 +21,19 @@ public class Quest : MonoBehaviour
     }
     public QuestTracker tracker;
     public QuestType type;
+    public QuestManager questManager;
     public InventoryManager inventory;
     public List<GameObject> collectables;
     public List<GameObject> states;
-    public GameObject Coin;
-
+    public GameObject Scenetrans;
+    public GameObject Medicine;
+    
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
+        questManager = FindObjectOfType<QuestManager>();
         inventory = FindObjectOfType<InventoryManager>();
-        Coin.SetActive(false);
+        Scenetrans.SetActive(false);
     }
     public void Update()
     {
@@ -58,6 +62,7 @@ public class Quest : MonoBehaviour
                 if (inventory.RunesCount >= 5)
                 {
                     tracker = QuestTracker.Ended;
+                    questManager.FinalCount  = 5;
                 }
                 break;
             case QuestType.CollectMedicine:
@@ -68,6 +73,7 @@ public class Quest : MonoBehaviour
                 if (inventory.MedicineCount  == 1)
                 {
                     tracker = QuestTracker.Ended;
+                    Scenetrans.SetActive(true);
                 }
                 break;
             case QuestType.CollectCoin:
@@ -78,19 +84,30 @@ public class Quest : MonoBehaviour
                 if (inventory.CoinCount >= 5)
                 {
                     tracker = QuestTracker.Ended;
-                    Coin.SetActive(true);
                 }
                 break;
             case QuestType.ColledctSword:
-                if (inventory.CoinCount < 1)
+                if (inventory.SwordCount< 1)
                 {
                     tracker = QuestTracker.Halfway;
                 }
-                if (inventory.CoinCount > 1)
+                if (inventory.SwordCount == 1)
                 {
                     tracker = QuestTracker.Ended;
+                    Scenetrans.SetActive(true);
                 }
                 break;
+            case QuestType.FinalQuest:
+             if(questManager.FinalCount > 1)
+             {
+                tracker = QuestTracker.Halfway;
+             }
+             if(questManager.FinalCount >= 5)
+             {
+                tracker = QuestTracker.Ended;
+             }
+                break;
+
         }
     }
     void UpdateStates()

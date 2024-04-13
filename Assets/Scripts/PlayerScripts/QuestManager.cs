@@ -8,10 +8,12 @@ public class QuestManager : MonoBehaviour
     public List<GameObject> collectables;
     public List<GameObject> FinishItems;
     bool dialogueEnd;
+    public int FinalCount;
     // Start is called before the first frame update
 
     void Start()
     {
+        FinalCount = 0;
         quests = new List<Quest>();
         quests.AddRange(FindObjectsOfType<Quest>());
         foreach(Quest quest in quests)
