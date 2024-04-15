@@ -20,6 +20,14 @@ public class LevelManager : MonoBehaviour
         {
             gamemanager.gameScenes = GameManager.GameScenes.Gameplay;
         }
+        else if(Scenename == "Scene_Dungeon")
+        {
+            gamemanager.gameScenes = GameManager.GameScenes.Gameplay;
+        }
+        else if(Scenename == "Scene_Ruins")
+        {
+            gamemanager.gameScenes = GameManager.GameScenes.Gameplay;
+        }
         else if(Scenename == "Scene_EndScene")
         {
             gamemanager.gameScenes = GameManager.GameScenes.Win;

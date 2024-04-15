@@ -1033,7 +1033,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -152.66968, y: -45.029297}
+  m_AnchoredPosition: {x: -419, y: -45.029297}
   m_SizeDelta: {x: 305.3394, y: 90.05859}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &434453788
@@ -2946,8 +2946,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MessageText: {fileID: 0}
   Message: 
-  sentence:
-  - Please Commander help me
+  sentence: []
   dialogue: {fileID: 1048135490}
   Inventory: {fileID: 0}
   Delay: 5
@@ -3001,7 +3000,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.040268064, y: 0.043489695}
+  m_Offset: {x: -0.040268064, y: -0.043301344}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -3012,7 +3011,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.1923411, y: 0.9295249}
+  m_Size: {x: 1.1923411, y: 1.103107}
   m_EdgeRadius: 0
 --- !u!61 &1048135492
 BoxCollider2D:
@@ -4747,7 +4746,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7947911505737750450, guid: 41ea6afb203377e42995d7d016ea5907, type: 3}
       propertyPath: m_SortingOrder
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7947911505737750455, guid: 41ea6afb203377e42995d7d016ea5907, type: 3}
       propertyPath: m_Name

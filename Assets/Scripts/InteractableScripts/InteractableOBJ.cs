@@ -70,6 +70,7 @@ public class InteractableOBJ : MonoBehaviour
     public void Dialogue()
     {
         FindObjectOfType<DialogueManager>().StartDialogue(sentence);
+        Time.timeScale = 0.0f;
     }
     public void Info()
     {

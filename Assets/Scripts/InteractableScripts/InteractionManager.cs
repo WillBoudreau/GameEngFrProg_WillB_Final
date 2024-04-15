@@ -66,9 +66,16 @@ public class InteractionManager : MonoBehaviour
             interact = null;
             Interactable = null;
         }
-    }
-    void ExecuteInteractable()
-    {
-
+        else if(other.gameObject.CompareTag("Info"))
+        {
+            interact = null;
+            Interactable = null;
+        }
+        else if(other.gameObject.CompareTag("Dialogue"))
+        {
+            interact = null;
+            Interactable = null;
+            nameText.text = null;
+        }
     }
 }

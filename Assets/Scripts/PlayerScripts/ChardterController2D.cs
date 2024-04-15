@@ -13,17 +13,33 @@ public class ChardterController2D : MonoBehaviour
     private float x;
     private float y;
     private float sprintSpeed;
+    GameManager gameManager;
+
+    DialogueManager dialogueManager;
 
     Vector2 movement;
     Vector2 lastDirect = Vector2.down;
     void Start()
     {
+        dialogueManager = FindObjectOfType<DialogueManager>();
+        gameManager = FindObjectOfType<GameManager>();
         _anim.GetComponent<Animation>();
         rb = GetComponent<Rigidbody2D>();
         sprintSpeed = moveSpeed * SprintMultiplier;
     }
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            if(gameManager.gameScenes == GameManager.GameScenes.Gameplay)
+            {
+                gameManager.Pause();
+            }
+        }
+        else if(dialogueManager.dialogueActive == true)
+        {
+            this.enabled = false;   
+        }
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
         x = movement.x;
@@ -67,8 +83,11 @@ public class ChardterController2D : MonoBehaviour
     //Fires both of the Movement and Animation
     void FixedUpdate()
     {
-        PlayerMove();
-        PlayerAnimaiton();
+        if(dialogueManager.dialogueActive == false)
+        {
+            PlayerMove();
+            PlayerAnimaiton();
+        }
     }
     //Moves Player
    public void PlayerMove()

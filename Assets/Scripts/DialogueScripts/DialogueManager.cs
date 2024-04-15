@@ -12,10 +12,14 @@ public class DialogueManager : MonoBehaviour
     public GameObject DialoguePanel;
     public Dialogue dialogue;
     public GameObject player;
+
+    public ChardterController2D playerController;
     public Quest quest;
     public QuestManager questManager;  
     
     public Queue<string> sentences;
+
+    public bool dialogueActive = false;
 
     // Start is called before the first frame update
     void Start()
@@ -24,15 +28,16 @@ public class DialogueManager : MonoBehaviour
         quest = FindObjectOfType<Quest>();
         sentences = new Queue<string>();
         DialoguePanel.SetActive(false);
+        player.GetComponent<ChardterController2D>().enabled = false;
+        player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
     }
     public void StartDialogue(string[] dialogueSentence)
     {
+        dialogueActive = true;
         sentences.Clear();
         Debug.Log("Started Dialogue");
         DialoguePanel.SetActive(true);
 
-        player.GetComponent<ChardterController2D>().enabled = false;
-        player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
 
         foreach(string sentence in dialogueSentence)
         {
@@ -57,7 +62,8 @@ public class DialogueManager : MonoBehaviour
     {
         sentences.Clear();
         DialoguePanel.SetActive(false);
-        player.GetComponent<ChardterController2D>().enabled = true;
+        dialogueActive = false;
+        //player.GetComponent<ChardterController2D>().enabled = true;
     }
 }
 

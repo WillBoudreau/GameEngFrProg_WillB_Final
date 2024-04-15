@@ -21,22 +21,13 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
-        {
-            Debug.Log("Escape Pressed");
-            if(gameScenes == GameScenes.Gameplay)
-            {
-                Pause();
-            }
-            else
-            {
-                Resume();
-            }
-        }
+       
         switch(gameScenes)
         {
             case GameScenes.MainMenu:
                 MainMenu();
+                Player.GetComponent<SpriteRenderer>().enabled = false;
+                Player.GetComponent<ChardterController2D>().enabled = false;
                 break;
             case GameScenes.PauseMenu:
                 Pause();
@@ -57,8 +48,6 @@ public class GameManager : MonoBehaviour
     }
     public void MainMenu()
     {
-        Player.GetComponent<SpriteRenderer>().enabled = false;
-        Player.GetComponent<ChardterController2D>().enabled = false;
         gameScenes = GameScenes.MainMenu;
         uiManager.MainMenuUI();
     }
@@ -92,9 +81,9 @@ public class GameManager : MonoBehaviour
     public void GamePlay()
     {
         Time.timeScale = 1.0f;
+        uiManager.GamePlay();
         Player.GetComponent<ChardterController2D>().enabled = true;
         Player.GetComponent<SpriteRenderer>().enabled = true;
-        uiManager.GamePlay();
     }
     public void Options()
     {
